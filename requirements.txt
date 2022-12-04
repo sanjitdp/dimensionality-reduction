@@ -1,0 +1,11 @@
+numpy
+Pillow
+tqdm
+scikit-learn
+torch
+python-mnist
+seaborn
+matplotlib
+pydiffmap
+pynndescent
+umap-learn

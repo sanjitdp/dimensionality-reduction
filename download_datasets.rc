@@ -1,0 +1,25 @@
+#!/bin/sh
+wget http://www.cs.columbia.edu/CAVE/databases/SLAM_coil-20_coil-100/coil-20/coil-20-unproc.zip
+unzip coil-20-unproc.zip
+wget http://www.cs.columbia.edu/CAVE/databases/SLAM_coil-20_coil-100/coil-100/coil-100.zip
+unzip coil-100.zip
+rm coil-20-unproc.zip
+rm coil-100.zip
+rm coil-100/convertGroupppm2png.pl
+rm coil-100/convertGroupppm2png.pl~
+wget -O mnist-isomap.npy "https://drive.google.com/uc?export=download&id=127Sg-C2AvP025tl6404kw3JOY1N7yUUX"
+mkdir datasets
+mv coil-20-unproc datasets/coil-20
+mv coil-100 datasets/coil-100
+mv mnist-isomap.npy datasets/mnist-isomap.npy
+wget https://data.deepai.org/mnist.zip
+unzip mnist.zip
+rm mnist.zip
+gzip -d train-labels-idx1-ubyte.gz
+gzip -d train-images-idx3-ubyte.gz
+gzip -d t10k-images-idx3-ubyte.gz
+gzip -d t10k-labels-idx1-ubyte.gz
+mv train-labels-idx1-ubyte datasets/
+mv train-images-idx3-ubyte datasets/
+mv t10k-images-idx3-ubyte datasets/
+mv t10k-labels-idx1-ubyte datasets/
